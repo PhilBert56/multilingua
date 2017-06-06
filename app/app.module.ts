@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 
 import {IonicStorageModule} from '@ionic/storage';
 import {LessonPage} from '../pages/lesson/lessonPage';
+import {LessonsPage} from '../pages/lessons/lessonsPage';
 import {ExercisesPage} from '../pages/exercises/exercisesPage';
 import {Calendar} from '@ionic-native/calendar';
 import { Contacts, Contact, ContactField, ContactName } from '@ionic-native/contacts';
@@ -27,15 +28,21 @@ import {CalendarPage} from '../pages/calendar/calendar.component';
 //import { DatePickerModule } from 'datepicker-ionic2';
 import {DatePickerPage} from '../pages/datepicker/datepicker'
 import { Network } from '@ionic-native/network';
+import { ExternalRessources } from '../pages/externalsrc/externalsrc';
+import { NetworkStatus } from '../services/network';
+import { ContactPage} from '../pages/contact/contact';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     LessonPage,
+    LessonsPage,
     ExercisesPage,
+    ExternalRessources,
     CalendarPage,
-    DatePickerPage
+    DatePickerPage,
+    ContactPage
   ],
   imports: [
     NgCalendarModule,
@@ -51,9 +58,12 @@ import { Network } from '@ionic-native/network';
     MyApp,
     HomePage,
     LessonPage,
+    LessonsPage,
     ExercisesPage,
     CalendarPage,
-    DatePickerPage
+    ExternalRessources,
+    DatePickerPage,
+    ContactPage
   ],
   providers: [
     StatusBar,
@@ -67,7 +77,9 @@ import { Network } from '@ionic-native/network';
     Transfer,
     FileOpener,
     FilePath,
-    Network
+    Network,
+    NetworkStatus,
+    ExternalRessources
   ]
 })
 export class AppModule {}

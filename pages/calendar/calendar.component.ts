@@ -8,7 +8,7 @@ import { Transfer, FileUploadOptions, TransferObject } from '@ionic-native/trans
 import { HomePage } from '../../pages/home/home';
 import { AlertController } from 'ionic-angular';
 import { Network } from '@ionic-native/network';
-
+import { NetworkStatus } from '../../services/network'
 
 @Component({
   selector: 'page-calendar',
@@ -147,7 +147,7 @@ export class CalendarPage {
         var path = this.file.externalRootDirectory + 'Android/';
         var dir = 'data';
 
-        if (HomePage.networkStatus  === 'none') {
+        if (NetworkStatus.networkStatus  === 'none') {
             let alert = this.alertCtrl.create({
             title: 'Trying to reach Internet Cloud (Firebase)',
             subTitle: 'But you are not connected',
@@ -177,7 +177,7 @@ export class CalendarPage {
 
     }
 
-
+/*
 getNetworkStatus() {
 
       let disconnectSubscription = this.network.onDisconnect().subscribe(() => {
@@ -207,5 +207,5 @@ getNetworkStatus() {
         HomePage.networkStatus = this.network.type;
         return this.network.type;
   }
-
+*/
 }

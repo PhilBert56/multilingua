@@ -1,0 +1,41 @@
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="Lesson"></ion-icon>
+    </button>
+    <ion-title>Lessons</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-card>
+
+  <ion-card-header>
+    Learn and train yourself
+  </ion-card-header>
+  
+  <ion-list>
+    <button ion-item>
+      <ion-icon name="md-school"  item-left (click)="displayLesson(lastLesson)"></ion-icon>
+      Current Lesson 
+    </button>
+
+    <button ion-item>
+      <ion-icon name="md-arrow-back" item-left (click)="displayLesson(lastLesson - 1)"></ion-icon>
+      Previous lesson
+    </button>
+
+    <button ion-item>
+      <ion-icon name="md-arrow-forward" item-left (click)="displayLesson(lastLesson + 1)"></ion-icon>
+      Next Lesson
+    </button>
+
+     <button ion-item>
+      <ion-icon name="md-medal" item-left (click)="displayExercises(lastLesson)"></ion-icon>
+      Exercises on current and previous lessons
+    </button>
+
+  </ion-list>
+
+</ion-card>

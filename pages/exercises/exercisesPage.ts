@@ -11,29 +11,26 @@ import {Exercise} from '../../services/exercise';
 
 export class ExercisesPage  {
 
-  exercises:any;
+ exercises:any;
 
-  
- 
  constructor(params: NavParams, private alertCtrl : AlertController){
     this.exercises = params.data;
   }
-isAnswerCorrect(exercise : Exercise, answer : string) {
-console.log ('Checking the answer ' + answer + 'compared to '+ exercise.rightAnswer );
 
-var title : string;
-  if (answer === exercise.rightAnswer) {
-    title = 'Good answer !'
-  } else {
-    title = 'Bad answer !'
-  }
+  isAnswerCorrect(exercise : Exercise, answer : string) {
+    console.log ('Checking the answer ' + answer + 'compared to '+ exercise.rightAnswer );
 
+    var title : string;
+    if (answer === exercise.rightAnswer) {
+      title = 'Good answer !'
+    } else {
+      title = 'Bad answer !'
+    }
     let alert = this.alertCtrl.create({
-    title: title,
-    subTitle: exercise.explanation,
-    buttons: ['Dismiss']
-  });
-  alert.present();
-
+      title: title,
+      subTitle: exercise.explanation,
+      buttons: ['Dismiss']
+    });
+    alert.present();
   }
 }

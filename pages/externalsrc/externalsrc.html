@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+    </button>
+    <ion-title>Files from Cloud</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-card>
+
+  <ion-card-header>
+    Reload Files from Cloud
+  </ion-card-header>
+
+
+  <ion-list>
+    <button ion-item>
+      <ion-icon name="md-globe"  item-left (click)="networkStatusOK(true)"></ion-icon>
+      Check Connection 
+    </button>
+
+    <button ion-item>
+      <ion-icon name="md-school"  item-left (click)="loadLessonsFile()"></ion-icon>
+      Reload Lessons 
+    </button>
+
+    <button ion-item>
+      <ion-icon name="md-medal" item-left (click)="loadExercisesFile()"></ion-icon>
+      Reload Exercises
+    </button>
+
+    <button ion-item>
+      <ion-icon name="md-calendar" item-left (click)="downloadCalendarFile()"></ion-icon>
+      Reload Calendar
+    </button>
+
+     <button ion-item>
+      <ion-icon name="md-person-add" item-left (click)="dowloadTeacherIds()"></ion-icon>
+      Reload Teacher coordinates
+    </button>
+
+  </ion-list>
+
+</ion-card>

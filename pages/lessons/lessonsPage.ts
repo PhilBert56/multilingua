@@ -1,59 +1,64 @@
+
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
-import {Exercises} from '../../data/exercises';
-import {ExercisesPage} from '../exercises/exercisesPage';
-import {MyApp} from '../../app/app.component';
-
+import { Storage } from '@ionic/storage';
+//import {Lessons} from '../../data/lessons';
+import { LessonPage } from '../lesson/lessonPage';
+//import {Exercises} from '../../data/exercises';
+import { ExercisesPage } from '../exercises/exercisesPage';
+import { MyApp } from '../../app/app.component';
+import { ExternalRessources } from '../../pages/externalsrc/externalsrc';
 
 @Component({
-  selector: 'page-lesson',
-  templateUrl: 'lessonPage.html'
+  selector: 'page-lessons',
+  templateUrl: 'lessons.html'
 })
 
+export class LessonsPage {
 
-export class LessonPage {
-  
-  lesson:any;
+  lastLesson : number = 1;
 
   constructor(
+    private storage : Storage, 
     private navCtrl : NavController,
-    private navParams: NavParams
-    ){
-      console.log('LESSON PAGE CONSTRUCTOR');
-      //console.log(navParams);
-      this.lesson = navParams.data;
-      console.log('leçon numéro ' + navParams.get('id'));
-    }
-  
-  displayThisLessonExercises(lessonId){
-    var ExercisesTabCurrentLesson = [] ;
-    var ExercisesToDisplay =[];
-    // Récupération des exercices de la leçon courrante
-    console.log('inside displayThisLessonExercises pour ' + lessonId)
-    for (let exo of MyApp.exercisesAll ) {
-      console.log( 'exo = ' + exo);
-      if ( exo.lessonId === lessonId){
-        ExercisesTabCurrentLesson.push(exo);
-      };
-    };
-    // _________________________________________________
-    var imax = Math.min (ExercisesTabCurrentLesson.length, 4);
-    var i = 0;
-    var indice = 0
-
-    while (i < imax) {
-        indice = Math.floor(Math.random() * ExercisesTabCurrentLesson.length );
-        ExercisesToDisplay.push ( ExercisesTabCurrentLesson [indice]);
-        ExercisesTabCurrentLesson.splice(indice, 1);
-        i++;
-      };
-     
-    this.navCtrl.push(ExercisesPage, ExercisesToDisplay);
-
+    private navParams : NavParams,
+    private externalRessources : ExternalRessources
+  ) {
+      this.getLastLesson();
+      console.log ('appel initializeExternalRessources');
+      this.externalRessources.initializeExternalRessources()
   }
 
- displayExercises(lessonId) {
+  getLastLesson() {
+    console.log('je viens d entrer dans getLastLesson');
+    // Retrouver le numéo de la dernière leçon dans le local storage
+    this.storage.get('lastLesson')
+    .then((data)=> {this.lastLesson =  data ; console.log('last lesson = ' + data)})
+    .catch((err)=> {
+      console.log(err);
+      this.lastLesson = 1;
+    });
+    console.log('je sors de getLastLesson');
+  }
+
+  displayLesson(lessonNumber) {
+    console.log('here in displayLesson with lessonNumber = '+ lessonNumber );
+    console.log('here in displayLesson  = '+ MyApp.lessonsAll.length );
+
+    this.lastLesson = Math.min (Math.max(lessonNumber,1) , MyApp.lessonsAll.length);
+    this.storage.set('lastLesson',this.lastLesson).then (()=>{});
+    //console.log('looking for lesson = '+ this.lastLesson + 'in ' + MyApp.lessonsAll );
+
+
+    console.log('va rechercher MyApp.lessonsAll pour lesson = '+this.lastLesson );
+
+    var lesson = MyApp.lessonsAll.find(it => it.id === this.lastLesson);
+
+    console.log ('ICI LESSON = ' + lesson);
+    this.navCtrl.push(LessonPage, lesson);
+  }
+
+  displayExercises(lessonId) {
     
     // Il faut pouvoir intégrer des exercises de la leçon précédente
     var ExercisesTabCurrentLesson = [] ;
@@ -69,9 +74,8 @@ export class LessonPage {
         ExercisesTabPreviousLesson.push(exo);
       };
     };
-    
-    //console.log(ExercisesTabCurrentLesson);
-    //console.log(ExercisesTabPreviousLesson);
+    console.log(ExercisesTabCurrentLesson);
+    console.log(ExercisesTabPreviousLesson);
 
     // constitution de la liste des exercices : 7 de la leçon courrante et 3 de la leçon précédente
     
@@ -109,10 +113,8 @@ export class LessonPage {
 
   }
 
+}
 
 
-
-
- }
 
 
