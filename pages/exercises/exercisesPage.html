@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="Lesson"></ion-icon>
+    </button>
+    <ion-title>Exercises</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <div *ngFor="let exercise of exercises">
+    <div> Exercise : {{exercise.exerciseName}} </div>
+    <div> Question : {{exercise.question}} </div>
+    <ul *ngFor = "let answer of exercise.possibleAnswers">
+      <ion-list radio-group [(ngModel)]="answ">
+       <ion-item>
+          <ion-label>{{answer}}</ion-label>
+          <ion-radio value="{{answer}}"></ion-radio>
+        </ion-item>
+      </ion-list>
+     </ul>
+     <button ion-button round outline (click)="isAnswerCorrect(exercise,answ)">Confirmation</button>
+  </div>
+
+</ion-content>

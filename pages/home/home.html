@@ -1,0 +1,52 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button icon-only (click)="displayContact()">
+        <ion-icon name="md-contact"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-buttons>
+      <button ion-button icon-only (click)="openCourseCalendar()">
+        <ion-icon name="md-calendar"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="md-cloud-download"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+
+
+</ion-header>
+
+
+
+<ion-content padding>
+
+  <h3>Welcome to your Learning Application</h3>
+
+<button ion-button outline icon-left>
+      <ion-icon name='briefcase' is-active="false"></ion-icon>
+      Your lessons
+</button>
+
+
+<button ion-button (click)="displayLesson(lastLesson)"> Current Lesson </button>
+<button ion-button (click)="displayLesson(lastLesson - 1)"> Previous Lesson </button>
+<button ion-button (click)="displayLesson(lastLesson + 1)"> Next Lesson </button>
+<button ion-button (click)="displayExercises(lastLesson)"> Exercises </button>
+<button ion-button (click)="displayCalendar()"> Calendrier </button>
+<button ion-button (click) = "openCalendar()"> OpenCalendar </button>
+<button ion-button (click)="displayContact()"> Contact </button>
+<button ion-button (click)="sendSMS()"> SMS </button>
+<button ion-button (click)="sendEmail()"> Email </button>
+<button ion-button (click)="loadExercisesFile()"> Reload Exercises </button>
+<button ion-button (click)="checkFile()"> Check if Exercises loaded </button>
+<button ion-button (click)="openCourseCalendar()"> Open Course Calendar </button>
+</ion-content>
+
