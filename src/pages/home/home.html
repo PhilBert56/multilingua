@@ -1,0 +1,80 @@
+
+<ion-header>
+  <ion-navbar>
+
+    <ion-buttons start>
+      <button ion-button icon-only (click)="showLessons()">
+        <ion-icon name="briefcase"></ion-icon>
+      </button>
+    </ion-buttons>
+
+
+    <ion-buttons>
+      <button ion-button icon-only (click)="showContactForm()">
+        <ion-icon name="md-contact"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    
+    <ion-buttons end>
+      <button ion-button icon-only (click)= "showCoursesCalendar()">
+        <ion-icon name="md-calendar"></ion-icon>
+      </button>
+    </ion-buttons>
+
+
+    <ion-buttons end>
+      <button ion-button icon-only  (click)="studentLogin()" class = "{{ loginOk ? 'login-true' : 'login-false' }}">
+        <ion-icon name="md-log-in" ></ion-icon>
+      </button>
+    </ion-buttons>
+   </ion-navbar>
+
+
+
+</ion-header>
+
+
+
+<ion-content padding>
+
+  <h5>Welcome to your Learning App {{studentName}}</h5>
+  <ion-card> 
+  <ion-card-header>
+    Enjoy learning English...
+  </ion-card-header>
+
+  </ion-card>
+
+<ion-card>
+  <ion-list>
+
+    <button ion-item>
+      <ion-icon name="md-log-in"  item-left (click)="studentLogin()"  ></ion-icon>
+      Login 
+    </button>
+
+    <button ion-item>
+      <ion-icon name="briefcase"  item-left (click)="showLessons()"></ion-icon>
+      Lessons + Homework 
+    </button>
+
+    <button ion-item>
+      <ion-icon name="md-calendar" item-left (click)="showCoursesCalendar()"></ion-icon>
+      Lessons Calendar
+    </button>
+
+     <button ion-item>
+      <ion-icon name="md-contact" item-left (click)="showContactForm()"></ion-icon>
+      Contact your Teacher
+    </button>
+
+    <button ion-item>
+      <ion-icon name="md-help" item-left (click)="showHelp()"></ion-icon>
+      Help
+    </button>
+
+
+   </ion-list>
+  </ion-card>
+</ion-content>

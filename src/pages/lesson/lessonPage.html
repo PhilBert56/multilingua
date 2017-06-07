@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="Lesson"></ion-icon>
+    </button>
+    <ion-title>Lesson {{lesson.id}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+
+<ion-card>
+
+  <ion-card-header>
+    Lesson {{lesson.id}}
+  </ion-card-header>
+
+  <ion-card-content>
+    {{lesson.text}}
+  </ion-card-content>
+
+</ion-card>
+<button ion-button color="dark" clear (click)="displayThisLessonExercises(lesson.id)"> 
+  <ion-icon name='md-medal'></ion-icon>
+    Exercises 
+</button>
+
+</ion-content>
