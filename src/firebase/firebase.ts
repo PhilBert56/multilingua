@@ -44,7 +44,8 @@ export class FirebaseInterface{
         MyApp.students = dataFirebase['Students'];
         MyApp.numberOfExercisesPerLesson = dataFirebase['LessonSettings'].numberOfExercises;
         MyApp.numberOfPreviousLessonExercises = dataFirebase['LessonSettings'].numberOfPreviousExercises;
-
+        MyApp.studentFilesDirectory = dataFirebase['Teacher'].StudentsDir;
+        
         if(Debug) {console.log( 'DATA read from Firebase : phone = ' + MyApp.teacherPhoneNumber )};
         if(Debug) {console.log( 'DATA read from Firebase : eMail = ' + MyApp.teacherEmailAdress )};
         if(Debug) {console.log( 'DATA read from Firebase : lessons file url = ' + MyApp.lessonsFileURL)};

@@ -9,6 +9,7 @@ import { CalendarPage } from '../../pages/calendar/calendar.component';
 import { ContactPage} from '../contact/contact';
 import { Help } from '../help/help';
 import { StudentLogin } from '../../login/login';
+import { ResultsPage } from '../results/resultsPage';
 import { MyApp } from '../../app/app.component';
 
 @Component({
@@ -37,9 +38,11 @@ export class HomePage {
   showCoursesCalendar()  {this.navCtrl.push(CalendarPage)}
   showContactForm(){this.navCtrl.push(ContactPage)}
   showHelp(){this.navCtrl.push(Help)}
+  showResults() {this.navCtrl.push(ResultsPage)}
 
-  studentLogin(){this.login.studentLogin(this.navCtrl) }
- 
+  studentLogin(){this.login.studentLogin(this.navCtrl)}
+
+  
 }
 
 

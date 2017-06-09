@@ -36,6 +36,7 @@ export class MyApp /*implements OnChanges*/ {
   static exercisesFileURL : string;
   static calendarFileURL : string;
   static lessonsFileURL : string;
+  static studentFilesDirectory : string;
 
 /* data arrays for data download from Firebase */
   static calendar : any = new Array;
@@ -51,8 +52,9 @@ export class MyApp /*implements OnChanges*/ {
   static studentIsLogged : boolean = false;
   static numberOfExercisesPerLesson : number;
   static numberOfPreviousLessonExercises : number;
-  static studentResults : any;
-  
+  static studentResults : any = new Array;
+
+
 /* Network Info */
   static connectionStatus : string = 'no';
   static connectionAtStartUp : boolean = false;

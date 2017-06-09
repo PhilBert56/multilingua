@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
-
-import { ExerciseServices } from '../../services/exercise.service';
+import { ExerciseServices } from '../../services/exercise.services';
 import { Exercise } from '../../services/exercise';
 import { Debug } from '../../config/debug';
 
@@ -27,15 +26,8 @@ export class ExercisesPage  {
       if(Debug){console.log('Enter respondToAnswer + ' , answer)};
       if(Debug){console.log('exercise is  ' + JSON.stringify(exercise))};
 
-/*
-      var ex = new Exercise(this.alertCtrl, <Exercise> exercise );
-      ex.sayHello();
-      ex.manageAnswer(answer);
-*/
-
       var exService = new ExerciseServices(this.alertCtrl,<Exercise> exercise);
   
-      exService.sayHello();
       exService.manageAnswer(answer);
 
 

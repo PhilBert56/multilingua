@@ -37,7 +37,12 @@ import { Help } from '../pages/help/help';
 import { AlertOK } from '../utils/alert'
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { Exercise } from '../services/exercise';
-import { ExerciseServices} from '../services/exercise.service';
+import { ExerciseServices} from '../services/exercise.services';
+import { ExerciseResults} from '../services/exercise.results';
+import { ResultsPage } from '../pages/results/resultsPage'
+import { ResultServices } from '../services/results.services';
+
+
 
 @NgModule({
   declarations: [
@@ -48,6 +53,7 @@ import { ExerciseServices} from '../services/exercise.service';
     ExercisesPage,
     CalendarPage,
     ContactPage,
+    ResultsPage,
     Help
   ],
   imports: [
@@ -68,6 +74,7 @@ import { ExerciseServices} from '../services/exercise.service';
     ExercisesPage,
     CalendarPage,
     ContactPage,
+    ResultsPage,
     Help
   ],
   providers: [
@@ -78,7 +85,6 @@ import { ExerciseServices} from '../services/exercise.service';
     LocalNotifications,
     Contacts,
     SMS,
-    //EmailComposer,
     File,
     Transfer,
     FileOpener,
@@ -90,7 +96,8 @@ import { ExerciseServices} from '../services/exercise.service';
     CallNumber,
     StudentLogin,
     AlertOK,
-    Exercise,ExerciseServices
+    Exercise,ExerciseServices, ExerciseResults,
+    ResultServices
   ]
 })
 export class AppModule {}

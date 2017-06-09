@@ -1,7 +1,5 @@
 
 import { Injectable } from '@angular/core';
-//import { File } from '@ionic-native/file';
-//import { FilePath } from '@ionic-native/file-path';
 import { AlertController } from 'ionic-angular';
 import { Debug } from '../config/debug';
 
