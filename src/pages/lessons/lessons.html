@@ -36,6 +36,11 @@
       Exercises on current <br/> and previous lessons
     </button>
 
+    <button ion-item *ngIf="homework">
+      <ion-icon name="md-alert" item-left (click)="manageHomework()"></ion-icon>
+      You have homework <br/> sent by your teacher
+    </button>
+
   </ion-list>
 
 </ion-card>

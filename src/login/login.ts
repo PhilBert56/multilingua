@@ -4,10 +4,14 @@ import { MyApp } from '../app/app.component';
 import { Injectable } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../pages/home/home';
+import { ResultServices } from '../services/results.services';
+
 @Injectable()
 
 export class StudentLogin {
-  constructor(public alertCtrl: AlertController) {
+  constructor(
+    private alertCtrl: AlertController , 
+    private resultServ : ResultServices ) {
   }
 
 studentLogin(navCtrl:NavController){
@@ -41,7 +45,7 @@ studentLogin(navCtrl:NavController){
 
     let prompt = this.alertCtrl.create({
       title: 'Login',
-      message: "Login is required to see your course calendar",
+      message: "Login is required to see your course calendar and homework",
       inputs: [
         {
           name: 'Name',
@@ -72,6 +76,9 @@ studentLogin(navCtrl:NavController){
             if(MyApp.students[Std].Name === data.Name && MyApp.students[Std].Key === data.Key){
                MyApp.studentName = data.Name;
                MyApp.studentIsLogged = true;
+
+               // To do : insérer un reset du tableau des résultats d'un élève si nécessaire
+               this.resultServ.resetStudentResults();
                break
             }
           }

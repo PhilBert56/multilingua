@@ -2,7 +2,7 @@
 import { firebaseConfig } from '../firebase/firebase.config';
 import { AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 import { MyApp } from '../app/app.component'
-import { database ,initializeApp } from 'firebase';
+import { database,initializeApp } from 'firebase';
 import { Debug } from '../config/debug';
 import { Injectable } from '@angular/core';
 
@@ -46,6 +46,7 @@ export class FirebaseInterface{
         MyApp.numberOfPreviousLessonExercises = dataFirebase['LessonSettings'].numberOfPreviousExercises;
         MyApp.studentFilesDirectory = dataFirebase['Teacher'].StudentsDir;
         
+
         if(Debug) {console.log( 'DATA read from Firebase : phone = ' + MyApp.teacherPhoneNumber )};
         if(Debug) {console.log( 'DATA read from Firebase : eMail = ' + MyApp.teacherEmailAdress )};
         if(Debug) {console.log( 'DATA read from Firebase : lessons file url = ' + MyApp.lessonsFileURL)};

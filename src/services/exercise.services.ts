@@ -94,27 +94,4 @@ export class ExerciseServices {
     result.insertIntoStudentResults();
   }
 
-
 }
-
-
-
-/*
-isAnswerCorrectOLD(answer)  : boolean 
-{
-    var title : string;
-    var answ : boolean = false;
-    if (answer === this.rightAnswer) {
-      title = 'Good answer !';
-      answ = true;
-    } else {
-      title = 'Bad answer !';
-    }
-    let alert = this.alertCtrl.create({
-      title: title,
-      subTitle: this.explanation,
-      buttons: ['Dismiss']
-    });
-    alert.present();
-    return answ;
- }*/

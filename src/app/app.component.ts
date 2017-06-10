@@ -36,13 +36,15 @@ export class MyApp /*implements OnChanges*/ {
   static exercisesFileURL : string;
   static calendarFileURL : string;
   static lessonsFileURL : string;
+  static homeworkFileURL : string;
   static studentFilesDirectory : string;
 
 /* data arrays for data download from Firebase */
   static calendar : any = new Array;
   static exercisesAll : any = new Array;
   static lessonsAll : any = new Array; 
-
+  static homework : any = new Array; 
+  
 /* Teacher info */
   static teacherPhoneNumber : '';
   static teacherEmailAdress : '';

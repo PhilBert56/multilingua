@@ -27,7 +27,7 @@ export class ResultsPage {
                 if (MyApp.studentResults[i].result) {this.nGood = this.nGood + 1};
             };
 
-            this.resServ.storeResultsOnDevice();
+            this.resServ.logResults();
          }
 
       }

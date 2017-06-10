@@ -11,7 +11,7 @@ import { DataService } from '../dataservice/data.service';
 @Injectable()
 export class NetworkServices{
 
-    static networkStatus;
+    //static networkStatus;
 
     constructor(
         private alertOK: AlertOK,

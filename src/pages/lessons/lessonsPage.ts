@@ -7,6 +7,12 @@ import { ExercisesPage } from '../exercises/exercisesPage';
 import { MyApp } from '../../app/app.component';
 import { Debug } from '../../config/debug';
 
+import { DataService } from '../../dataservice/data.service';
+import { ExternalFilesConfig } from '../../config/configfile';
+import { database } from 'firebase';
+import { NetworkServices } from '../../network/network'
+import { AlertOK } from '../../utils/alert';
+
 @Component({
   selector: 'page-lessons',
   templateUrl: 'lessons.html'
@@ -15,13 +21,17 @@ import { Debug } from '../../config/debug';
 export class LessonsPage {
 
   lastLesson : number = 1; // valeur par défaut
+  homework : boolean = false;
 
   constructor(
     private storage : Storage, 
     private navCtrl : NavController,
-    private navParams : NavParams
+    private navParams : NavParams,
+    private dataServ: DataService,
+    private alertCtrl : AlertOK
     ) 
-    {this.getLastLesson()}
+    {this.getLastLesson();
+    this.isThereHomeworkToBeDone()}
 
 
   getLastLesson() {
@@ -123,8 +133,71 @@ export class LessonsPage {
 
   }
 
+  isThereHomeworkToBeDone(){
+
+      if (!MyApp.studentIsLogged) {
+        this.homework = false;
+        return
+      }
+
+
+      for ( var Std in MyApp.students) {
+        if(MyApp.students[Std].Name === MyApp.studentName && MyApp.students[Std].homeWork) {
+          this.homework = true;
+          return
+      }
+
+    }
+
+  }
+
+  manageHomework(){
+    var root = database().ref();
+    root.on('value', function(snap) {
+        var dataFirebase:any = snap.val();
+        MyApp.students = dataFirebase['Students'];
+        
+        for (var Std in MyApp.students){
+          if(MyApp.students[Std].Name === MyApp.studentName && MyApp.students[Std].homeWork){
+              MyApp.homeworkFileURL = MyApp.students[Std].homeWorkFile
+          }
+        }
+    });
+    this.dataServ.loadFileFromCloud(ExternalFilesConfig.homeworkFileName, MyApp.homeworkFileURL);
+    setTimeout( 
+      () => {
+      if(Debug) {console.log('launching importFilesFromCloud for Homework at '+ new Date() )};
+      var platformPath : string = this.dataServ.getPlatformPath();
+      var fullPath = platformPath + ExternalFilesConfig.dir;
+      this.dataServ.buildArrayFromJSONFile(fullPath, ExternalFilesConfig.homeworkFileName, 'homework');
+      },
+     1000 );
+
+     setTimeout( 
+      () => { this.displayHomework() },
+     2000 );
+
+    }
+
+
+    displayHomework( ){
+
+      if(Debug){console.log ('Entering into displayHomework ; network is '+ MyApp.connectionStatus )};
+
+      if(MyApp.connectionStatus === 'ok')
+      {
+      var ExercisesToDisplay =[];
+      for (let exo of MyApp.homework ) { ExercisesToDisplay.push(exo)};
+      this.navCtrl.push(ExercisesPage, ExercisesToDisplay);
+      } 
+      else 
+      {
+
+        this.alertCtrl.showAlert('Network Connection is not OK','Homework cannot be loaded');
+      }
+    }
+
+
+
+
 }
-
-
-
-

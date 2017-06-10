@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { NavParams } from 'ionic-angular';
+import { NavController,NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { ExerciseServices } from '../../services/exercise.services';
 import { Exercise } from '../../services/exercise';
 import { Debug } from '../../config/debug';
+import { HomePage} from '../home/home';
+
 
 @Component({
   selector: 'page-exercises',
@@ -16,6 +18,7 @@ export class ExercisesPage  {
 
  constructor(
    params: NavParams, 
+   private navCtrl : NavController,
    private alertCtrl : AlertController)
    {
       this.exercises = params.data;
@@ -70,7 +73,9 @@ export class ExercisesPage  {
 
  
 
-
+showHome(){
+  this.navCtrl.push(HomePage);
+}
 
 
 

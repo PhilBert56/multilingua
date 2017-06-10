@@ -40,8 +40,8 @@ export class DataService {
             console.log ('ENTER INSIDE importAllFromDevice at '+ date);
         };
 
-        var platformPath : string = 'unknown';
-
+        var platformPath : string = this.getPlatformPath();
+/*
         switch ( MyApp.platformIs)  {
             case 'android' :
                 platformPath = ExternalFilesConfig.pathToDir.android; 
@@ -56,7 +56,7 @@ export class DataService {
                 platformPath = 'not found'
 
 
-        }
+        }*/
 
 
         if(MyApp.platformIs != 'not found')
@@ -71,7 +71,23 @@ export class DataService {
         }
         
      }
+     getPlatformPath() : string{ 
+        var platformPath : string = 'unknown';
 
+        switch ( MyApp.platformIs)  {
+            case 'android' :
+                return ExternalFilesConfig.pathToDir.android; 
+                
+            case 'ios' :
+                return ExternalFilesConfig.pathToDir.ios; 
+                ;
+            case 'windows':
+                return ExternalFilesConfig.pathToDir.windows; 
+                ;
+            default :
+                return 'not found'
+        }
+     }
 
      buildArrayFromJSONFile(onDeviceDirectory,fileName,target) {
 
@@ -132,6 +148,12 @@ export class DataService {
             if (target === 'calendar') { 
                 MyApp.calendar = obj;
                 if(Debug){console.log ('populate calendar in MyApp : SUCCESS' + obj )}
+            }
+
+
+            if (target === 'homework') { 
+                MyApp.homework = obj;
+                if(Debug){console.log ('populate homework in MyApp : SUCCESS' + obj )}
             }
 
          } 

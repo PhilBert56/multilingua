@@ -3,6 +3,11 @@
     <button ion-button menuToggle>
       <ion-icon name="Lesson"></ion-icon>
     </button>
+    <ion-buttons end>
+      <button ion-button icon-only (click)= "showHome()">
+        <ion-icon name="md-home"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-title>Lesson {{lesson.id}}</ion-title>
   </ion-navbar>
 </ion-header>
