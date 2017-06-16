@@ -1,0 +1,31 @@
+[   {
+		"eventType": "English Lesson",
+		"student":"Phil",
+		"year": 2017,
+		"month": 6,
+		"day": 21,
+		"hour": 10,
+		"duration": "1 hour"
+	},
+
+	{
+		"eventType": "English Lesson",
+		"student":"Phil",
+		"year": 2017,
+		"month": 6,
+		"day": 28,
+		"hour": 15,
+		"duration": "1 hour"
+	},
+
+	{
+		"eventType": "English Lesson",
+		"student":"Jules",
+		"year": 2017,
+		"month": 6,
+		"day": 12,
+		"hour": 13,
+		"duration": "1 hour"
+	}
+	
+]

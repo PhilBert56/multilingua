@@ -1,0 +1,40 @@
+[{
+		"id": 1,
+		"objective": "arriver à dire "un garçon", "une fille".",
+		"text": "
+Il faut utiliser l'article A devant un nom commençant par un son \"consonne\" et 'AN' devant un nom commençant par un son \"voyelle\".
+
+Exemples :
+- door (porte) > a door (une porte)
+/d/ est un son consonne
+
+- apple (pomme) > an apple (une pomme)
+/a/ est un son voyelle
+"
+	},
+
+	{
+		"id": 2,
+		"objective": "un texte qui explique l' objectif de la leçon 2",
+		"text": "un texte qui explique le contenu de la leçon 2"
+	},
+
+	{
+		"id": 3,
+		"objective": "un texte qui explique l objectif de cette leçon 3",
+		"text": "un texte qui explique le contenu de la leçon 3"
+	},
+
+	{
+		"id": 4,
+		"objective": "un texte qui explique l objectif de cette leçon 4",
+		"text": "un texte qui explique le contenu de la leçon 4"
+	},
+
+	{
+		"id": 5,
+		"objective": "un texte qui explique l objectif de cette leçon 5",
+		"text": "un texte qui explique le contenu de la leçon 5"
+	}
+
+]

@@ -1,0 +1,38 @@
+[
+	{
+	  "lessonId":0,
+    "exerciseName": "Jules, you need to understand this point : A/AN - cours ",
+    "question": "___  umbrella",
+    "possibleAnswers": ["a", "an"],
+    "rightAnswer": "an",
+	  "explanation": "Il n'y a pas de son /j/. On est donc en présence d'un son voyelle."
+    },
+	{
+		"lessonId":0,
+    "exerciseName": "Jules, you need to understand this point : A/AN - cours",
+    "question": "___  table",
+    "possibleAnswers": ["a", "an"],
+    "rightAnswer": "a",
+	  "explanation": "'table' commence par un son consonne: /t/"
+    },
+	{
+		"lessonId":0,
+    "exerciseName": "Jules, you need to understand this point : A/AN - cours",
+    "question": "___  house",
+    "possibleAnswers": ["a", "an"],
+    "rightAnswer": "a",
+	  "explanation": "En anglais, on prononce très souvent le 'h' en début de mot, ce qui est le cas pour 'house'. Il s'agit d'un son consonne."
+    },
+
+	{
+		"lessonId":0,
+    "exerciseName": "Jules, you need to understand this point : A/AN - cours",
+    "question": "___  history",
+    "possibleAnswers": ["a", "an"],
+    "rightAnswer": "a",
+	  "explanation": "On prononce le 'h' aspiré. On doit donc utiliser 'a'."
+    }
+
+
+
+  ] 
